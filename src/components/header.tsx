@@ -1,5 +1,4 @@
 import { BiArrowBack } from 'react-icons/bi'
-import { BsThreeDotsVertical } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
