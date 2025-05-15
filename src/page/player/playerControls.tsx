@@ -32,21 +32,10 @@ const PlayerControls = () => {
       <span className="text-xs text-gray-400 w-10">{formatTime(currentTime)}</span>
       <div className="relative flex-grow h-2 bg-gray-700 rounded-full">
         {/* Progress background */}
-        <div
-          className="absolute h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-          style={{ width: `${(currentTime / duration) * 100}%` }}
-        ></div>
+        <div className="absolute h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style={{ width: `${(currentTime / duration) * 100}%` }}></div>
 
         {/* Seek knob */}
-        <input
-          type="range"
-          min={0}
-          max={duration || 0}
-          value={currentTime}
-          step={0.1}
-          onChange={(e) => seekTo(parseFloat(e.target.value))}
-          className="absolute w-full h-full opacity-0 cursor-pointer"
-        />
+        <input type="range" min={0} max={duration || 0} value={currentTime} step={0.1} onChange={(e) => seekTo(parseFloat(e.target.value))} className="absolute w-full h-full opacity-0 cursor-pointer" />
       </div>
       <span className="text-xs text-end text-gray-400 w-10">{formatTime(duration || 0)}</span>
     </div>
@@ -54,8 +43,7 @@ const PlayerControls = () => {
     {/* Control Buttons */}
     <div className="flex items-center justify-between mx-3">
         {/* Volume Control */}
-        <Popover
-          trigger={
+        <Popover trigger={
             <button className="text-gray-400 hover:text-white transition-colors " onClick={() => setVolume(volume === 0 ? 0.5 : 0)} >{getVolumeIcon()}</button>
           }
           position="right">
@@ -66,41 +54,20 @@ const PlayerControls = () => {
 
       {/* Play Controls */}
       <div className="flex items-center justify-center gap-4">
-        <button
-          className="text-gray-400 hover:text-white transition-colors"
-          onClick={prevTrack}
-        >
-          <LuSkipBack size={24} />
+        <button className="text-gray-400 hover:text-white transition-colors" onClick={prevTrack} >   
+        <LuSkipBack size={24} />
         </button>
-
-        <button
-          className="w-12 h-12 flex items-center justify-center bg-purple-600 hover:bg-purple-700 rounded-full transition-colors"
-          onClick={togglePlay}
-        >
-          {isPlaying ? (
-            <LuPause size={24} />
-          ) : (
-            <LuPlay size={24} className="ml-1" />
-          )}
+        <button className="w-12 h-12 flex items-center justify-center bg-purple-600 hover:bg-purple-700 rounded-full transition-colors" onClick={togglePlay} >
+          {isPlaying ? ( <LuPause size={24} /> ) : ( <LuPlay size={24} className="ml-1" /> )}
         </button>
-
-        <button
-          className="text-gray-400 hover:text-white transition-colors"
-          onClick={nextTrack}
-        >
+        <button className="text-gray-400 hover:text-white transition-colors" onClick={nextTrack} >
           <LuSkipForward size={24} />
         </button>
       </div>
 
       {/* Repeat Button */}
       <div className="flex items-center gap-2">
-        <button
-          className={`text-gray-400 hover:text-white transition-colors ${
-            repeat ? "text-purple-500" : ""
-          }`}
-          onClick={toggleRepeat}
-          title={repeat ? "Repeat on" : "Repeat off"}
-        >
+        <button className={`text-gray-400 hover:text-white transition-colors ${ repeat ? "text-purple-500" : "" }`} onClick={toggleRepeat} title={repeat ? "Repeat on" : "Repeat off"} >
           <LuRepeat size={20} />
         </button>
       </div>
